@@ -4,6 +4,9 @@
 
 ---
 
+This repository is a copy of Blueoil created by Leapmind Inc. Although Leapmind no longer exists, this project is made available under the Apache 2.0 License
+---
+
 Blueoil provides two features.
 * Training a neural network model
 * Converting a trained model to an executable binary (or library), which utilize FPGAs for acceleration.
