@@ -1,0 +1,16 @@
+# git
+.git/
+
+# python
+*.pyc
+__pycache__/
+
+# project
+saved/
+*/saved/
+dataset/
+config/
+*.github/
+*tmp/
+*docs/
+.firebase/

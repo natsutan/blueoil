@@ -1,0 +1,24 @@
+CLASSES:
+- airplane
+- automobile
+- bird
+- cat
+- deer
+- dog
+- frog
+- horse
+- ship
+- truck
+DATA_FORMAT: NHWC
+IMAGE_SIZE:
+- 28
+- 28
+POST_PROCESSOR: null
+PRE_PROCESSOR:
+- Resize:
+    resample: NEAREST
+    size:
+    - 28
+    - 28
+- PerImageStandardization: null
+TASK: IMAGE.CLASSIFICATION

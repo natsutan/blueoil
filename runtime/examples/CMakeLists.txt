@@ -1,0 +1,36 @@
+cmake_minimum_required(VERSION 3.5)
+
+project(EXAMPLE)
+
+set(CMAKE_VERBOSE_MAKEFILE ON)
+set(CMAKE_CXX_COMPILER g++)
+set(CMAKE_CXX_FLAGS "-Wall -O3")
+set(CMAKE_CXX_STANDARD "11")
+
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+add_executable(run run.cpp)
+
+if(USE_OPENCV)
+  find_package(OpenCV REQUIRED)
+  if(NOT OpenCV_FOUND)
+    message(SEND_ERROR "OpenCV library not found.")
+  endif()
+endif()
+if(USE_LIBPNG)
+  find_package(PNG REQUIRED)
+  if(NOT PNG_FOUND)
+    message(SEND_ERROR "PNG library not found.")
+  endif()
+endif()
+
+if(USE_OPENCV)
+  target_link_libraries(run blueoil ${OpenCV_LIBS})
+else()
+  if(USE_LIBPNG)
+    target_link_libraries(run blueoil png pthread)
+  else()
+    target_link_libraries(run blueoil pthread)
+  endif()
+endif()
